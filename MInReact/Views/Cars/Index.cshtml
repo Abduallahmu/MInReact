@@ -1,0 +1,33 @@
+﻿@model List<Car>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<h1 class="offset-2">Index</h1>
+<hr />
+<br />
+
+<table id="tableListOfCars" class="offset-2 table-active marginBottom60 col-8" onload="GetAllCars()">
+    <thead>
+        <tr>
+            <th>Modelname</th>
+            <th>Marke</th>
+            <th>Color</th>
+            <th>Production Years</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody id="carsList">
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="Cars" class="btn btn-success offset-2 floatLeft">Create Car</a>
+
+@foreach (var item in Model)
+{
+    <a asp-route-id="@item.Id" asp-action="Edit" asp-controller="Cars" class="btn btn-warning">Edit</a>
+    <a asp-route-id="@item.Id" asp-action="Details" asp-controller="Cars" class="btn btn-primary">Details</a>
+    <a asp-route-id="@item.Id" asp-action="Delete" asp-controller="Cars" class="btn btn-danger">Delete</a>
+    break;
+}
